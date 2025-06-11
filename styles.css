@@ -1,16 +1,19 @@
 /* Color Variables */
 :root {
-    --primary-color: #4567b7;      /* Soft blue */
-    --secondary-color: #8bc34a;     /* Fresh green */
-    --accent-color: #ffd700;        /* Soft yellow */
-    --background-color: #f5f5f5;    /* Gentle gray */
-    --text-color: #333333;          /* Dark gray text */
-    --light-text: #666666;          /* Light gray text */
+    --primary-color: #a0522d;      /* Warm brown */
+    --secondary-color: #8b4513;     /* Dark brown */
+    --accent-color: #ffd700;        /* Gold */
+    --warm-color: #d2691e;          /* Warm red */
+    --background-color: #f5f0e6;    /* Warm beige */
+    --text-color: #2d0000;          /* Dark brown text */
+    --light-text: #654321;          /* Light brown text */
+    --service-bg: #fff5e6;          /* Light beige */
+    --services-image: url('images/services-bg.jpg');
 }
 
 /* Global Styles */
 body {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     padding-top: 76px;
     background-color: var(--background-color);
@@ -51,7 +54,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(rgba(69, 103, 183, 0.8), rgba(69, 103, 183, 0.8)), url('background_img.jpg');
+    background: linear-gradient(rgba(160, 82, 45, 0.8), rgba(160, 82, 45, 0.8)), url('background_img.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -65,13 +68,10 @@ body {
 
 .hero-content h1 {
     color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3),
-                 -2px -2px 0 var(--primary-color),
-                 2px -2px 0 var(--primary-color),
-                 -2px 2px 0 var(--primary-color),
-                 2px 2px 0 var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-weight: 700;
 }
 
 .hero-content .lead {
@@ -107,10 +107,110 @@ body {
 .service-card li {
     margin-bottom: 0.75rem;
     color: var(--light-text);
+    transition: all 0.3s ease;
 }
 
 .service-card li:hover {
     color: var(--primary-color);
+    background-color: var(--background-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+/* Add new hover effects for links */
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    background-color: var(--warm-color);
+    border-color: var(--warm-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#services {
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+        rgba(101, 67, 33, 0.9) 0%, 
+        rgba(135, 206, 235, 0.9) 100%
+    );
+}
+
+#services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/services-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+#services h2 {
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+#services .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add new accent elements */
+.hero-content::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--cool-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,128,128,0.3);
 }
 
 /* Buttons */
@@ -225,7 +325,7 @@ body {
 
 /* Why Choose Us Section */
 .feature-item {
-    background-color: #0d6efd;
+    background-color: #8b4513;
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -254,8 +354,11 @@ body {
 /* Services Section */
 #services {
     padding: 3rem 0;
-    background-color: #0d6efd;
-    background-image: none;
+    background: linear-gradient(135deg, #8b4513 5%, #a0522d 100%), url('images/pexels-ron-lach-9986354.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
 }
 
 #services h2 {
